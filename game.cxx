@@ -250,9 +250,16 @@ class Car
             // رسم دائرة الهدف (Reticle)
             float tx = (x + w / 2) + cos(rad) * currentRange;
             float ty = (y + h / 2) + sin(rad) * currentRange;
+
+            // رسم مربع الهدف الخارجي
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+            SDL_Rect outerReticle = {(int)(tx - camX - 15), (int)(ty - camY - 15), 30, 30};
+            SDL_RenderDrawRect(renderer, &outerReticle);
+
+            // رسم مربع الهدف الداخلي
             SDL_SetRenderDrawColor(renderer, 255, 0, 0, 200);
-            SDL_Rect reticle = {(int)(tx - camX - 10), (int)(ty - camY - 10), 20, 20};
-            SDL_RenderDrawRect(renderer, &reticle); // دائرة بسيطة (مربع صغير للتوضيح)
+            SDL_Rect innerReticle = {(int)(tx - camX - 10), (int)(ty - camY - 10), 20, 20};
+            SDL_RenderFillRect(renderer, &innerReticle);
         }
     }
 };
