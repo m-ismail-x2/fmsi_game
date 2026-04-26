@@ -240,7 +240,7 @@ class Car
         {
             float maxRange = 600.0f;
             float currentRange = power * maxRange;
-            float rad = (aimAngle - 145) * M_PI / 180.0f;
+            float rad = (aimAngle - 90) * M_PI / 180.0f;
 
             // رسم السهم المتمطط
             SDL_FRect arrowRect = {x + w / 2 - camX - 25, y + h / 2 - camY - currentRange, 50, currentRange};
